@@ -12,4 +12,12 @@ import { CartService } from '../services/cart.service';
 })
 export class NavbarComponent {
   constructor(public cartService: CartService) {}
+
+
+    menuOpen = false;
+
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

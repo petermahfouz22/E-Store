@@ -1,0 +1,17 @@
+<header>
+  <h1>Product store</h1>
+  <nav>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">
+      Cart ({{ cartService.getTotalItems() }})
+    </a>
+  </nav>
+</header>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>&copy; My products shop</p>
+</footer>

@@ -1,0 +1,17 @@
+<div class="product-grid">
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="product.thumbnail" [alt]="product.title" [routerLink]="['/products', product.id]">
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.price | currency:'USD' }}</p>
+
+    <div class="quantity-controls">
+      <button (click)="decreaseQuantity(product); $event.stopPropagation()">-</button>
+      <span>{{ getProductQuantity(product.id) }}</span>
+      <button (click)="increaseQuantity(product); $event.stopPropagation()">+</button>
+    </div>
+
+    <button (click)="addToCart(product); $event.stopPropagation()">
+      {{ getProductQuantity(product.id) > 0 ? 'Update Cart' : 'Add to Cart' }}
+    </button>
+  </div>
+</div>

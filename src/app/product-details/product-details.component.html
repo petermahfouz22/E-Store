@@ -1,0 +1,29 @@
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="product" class="product-details">
+  <img [src]="product.thumbnail" [alt]="product.title">
+  <h2>{{ product.title }}</h2>
+  <p>{{ product.description }}</p>
+
+  <div class="price-section">
+    <p><strong>Price:</strong> {{ product.price | currency:'USD' }}</p>
+    <p *ngIf="product.discountPercentage > 0">
+      <strong>Discounted Price:</strong>
+      {{ product.price | discount:product.discountPercentage | currency:'USD' }}
+      ({{ product.discountPercentage }}% off)
+    </p>
+  </div>
+
+  <div class="quantity-controls">
+    <button (click)="decreaseQuantity()" [disabled]="quantity <= 1">-</button>
+    <span>{{ quantity }}</span>
+    <button (click)="increaseQuantity()" [disabled]="quantity >= product.stock">+</button>
+  </div>
+
+  <button class="add-to-cart" (click)="addToCart()">
+    Add to Cart ({{ quantity }})
+  </button>
+</div>
+

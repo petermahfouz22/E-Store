@@ -17,9 +17,9 @@
   </div>
 
   <div class="quantity-controls">
-    <button (click)="decreaseQuantity()" [disabled]="quantity <= 1">-</button>
+    <button (click)="decreaseQuantity()" class="minus" [disabled]="quantity <= 1" class="minus">-</button>
     <span>{{ quantity }}</span>
-    <button (click)="increaseQuantity()" [disabled]="quantity >= product.stock">+</button>
+    <button (click)="increaseQuantity()" class="plus" [disabled]="quantity >= product.stock" >+</button>
   </div>
 
   <button class="add-to-cart" (click)="addToCart()">
